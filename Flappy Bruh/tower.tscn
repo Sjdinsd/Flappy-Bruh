@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://c74cdimfrnhie"]
+
+[ext_resource type="Texture2D" uid="uid://b66uppf4a5biv" path="res://icon.svg" id="1_224rh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_54bjy"]
+size = Vector2(116.364, 126.183)
+
+[node name="Tower" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(0, 450)
+scale = Vector2(0.34375, 4.95313)
+texture = ExtResource("1_224rh")
+
+[node name="Area2D" type="Area2D" parent="Icon"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/Area2D"]
+position = Vector2(2.08074e-06, 0.201897)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_54bjy")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(0, -450)
+scale = Vector2(0.375, 4.82227)
+texture = ExtResource("1_224rh")
+
+[node name="Area2D" type="Area2D" parent="Icon2"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Icon2/Area2D"]
+position = Vector2(1.13687e-13, -3.21426)
+scale = Vector2(0.916666, 1.02714)
+shape = SubResource("RectangleShape2D_54bjy")
