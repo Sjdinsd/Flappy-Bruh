@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcd3ugqiw2ve3"]
+
+[ext_resource type="Script" path="res://Game.gd" id="1_as6h5"]
+[ext_resource type="Texture2D" uid="uid://b66uppf4a5biv" path="res://icon.svg" id="2_7mh8c"]
+[ext_resource type="PackedScene" uid="uid://blxqi6u33dfeo" path="res://character.tscn" id="3_3lyft"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2erhc"]
+size = Vector2(128, 119)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_as6h5")
+
+[node name="Towers" type="Node" parent="."]
+
+[node name="floor" type="Sprite2D" parent="."]
+z_index = 4
+position = Vector2(570, 634)
+scale = Vector2(10.1406, 1)
+texture = ExtResource("2_7mh8c")
+
+[node name="Area2D" type="Area2D" parent="floor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor/Area2D"]
+position = Vector2(0.295845, 2.5)
+shape = SubResource("RectangleShape2D_2erhc")
+
+[node name="background" type="Sprite2D" parent="."]
+z_index = -9
+position = Vector2(570, 333)
+scale = Vector2(10.1406, 5.70313)
+texture = ExtResource("2_7mh8c")
+
+[node name="Character" parent="." instance=ExtResource("3_3lyft")]
+position = Vector2(55, 283)
+
+[node name="Score" type="Label" parent="."]
+z_index = 11
+offset_right = 230.0
+offset_bottom = 87.0
+theme_override_font_sizes/font_size = 98
+text = "SCORE: 0"
+
+[connection signal="area_entered" from="Character" to="." method="_on_character_area_entered"]
